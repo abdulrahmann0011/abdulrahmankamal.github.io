@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulrahman Kamal | Computer Science Graduate & IT Professional</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --primary-light: #534bae;
+            --primary-dark: #000051;
+            --secondary: #ffab00;
+            --secondary-light: #ffdd4b;
+            --secondary-dark: #c67c00;
+            --dark: #121212;
+            --light: #f5f5f7;
+            --gray: #424242;
+            --gray-light: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.95) !important;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--secondary), var(--secondary-light));
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .section-title.center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: white;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border-left: 4px solid var(--primary);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .info-card h5 {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            background-color: var(--light);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+            border: 4px solid var(--primary);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            background-color: white;
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+            border: 4px solid var(--primary);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-position {
+            font-weight: 600;
+            color: var(--secondary-dark);
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background-color: white;
+        }
+
+        .skill-category {
+            margin-bottom: 3rem;
+        }
+
+        .skill-category h4 {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 1rem;
+        }
+
+        .skill-item {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-light);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: var(--gray-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Education Section */
+        .education-section {
+            background-color: var(--light);
+        }
+
+        .education-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .education-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .education-degree {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-year {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Languages Section */
+        .languages-section {
+            background-color: white;
+        }
+
+        .language-item {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .language-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .language-name {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .language-level {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-section .section-title::after {
+            background: linear-gradient(90deg, white, var(--secondary-light));
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-light);
+            margin-right: 1rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--secondary-light);
+            box-shadow: 0 0 0 0.25rem rgba(255, 171, 0, 0.25);
+            color: white;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--secondary), var(--secondary-light));
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Abdulrahman Kamal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#languages">Languages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title animate__animated animate__fadeInUp">Abdulrahman Kamal</h1>
+                    <h2 class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Computer Science Graduate & IT Professional</h2>
+                    <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-2s">
+                        Computer Science graduate with strong IT knowledge, solid computer logic, and multi-field business experience.
+                    </p>
+                    <a href="#contact" class="btn cta-button animate__animated animate__fadeInUp animate__delay-3s">Get In Touch</a>
+                </div>
+                <div class="col-lg-6 text-center animate__animated animate__fadeIn animate__delay-1s">
+                    <img src="abdulrahman.png" alt="Abdulrahman Kamal" class="profile-img rounded-circle">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">Profile Summary</h2>
+            <div class="row">
+                <div class="col-lg-8 mb-4">
+                    <div class="info-card fade-in">
+                        <p class="lead">
+                            Computer Science graduate from Soran University with strong general IT knowledge, solid computer logic, and multi-field business experience. Skilled in IT support, accounting, treasury work, and company operations. Experienced in international communication, banking procedures, and technical-business coordination. Reliable, adaptable, and capable of handling diverse responsibilities.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="info-card fade-in">
+                        <h5><i class="bi bi-person me-2"></i>Personal Details</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Erbil, Kurdistan Region – Iraq</li>
+                            <li class="mb-2"><i class="bi bi-phone me-2"></i>07509208992</li>
+                            <li class="mb-2"><i class="bi bi-envelope me-2"></i>Abdulrahman.gmcd@gmail.com</li>
+                            <li class="mb-2"><i class="bi bi-globe me-2"></i>https://abdulrahmann001.github.io</li>
+                            <li class="mb-2"><i class="bi bi-calendar me-2"></i>Age: 23</li>
+                            <li class="mb-2"><i class="bi bi-car-front me-2"></i>Own vehicle: Yes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <h2 class="section-title center">Professional Experience</h2>
+            <div class="timeline">
+                <!-- Current Job -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Current</div>
+                        <h3 class="timeline-company">Hatwan Company for Currency Exchange & Money Remittances</h3>
+                        <h4 class="timeline-position">Accountant</h4>
+                        <p>Erbil, Iraq</p>
+                        <ul>
+                            <li>Handle local and international remittances</li>
+                            <li>Perform daily accounting tasks, financial tracking, and reporting</li>
+                            <li>Communicate with international financial partners</li>
+                            <li>Support operational workflows in exchange services and compliance matters</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Previous Job -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Previous</div>
+                        <h3 class="timeline-company">Al Moheb Company (Partner of Altunkaya Group)</h3>
+                        <h4 class="timeline-position">General Supervisor / IT Support / Accountant / Treasury Secretary</h4>
+                        <p>Erbil, Iraq</p>
+                        <ul>
+                            <li>Managed general operations and supervised daily company activities</li>
+                            <li>Provided IT support for office systems and technical issues</li>
+                            <li>Worked in treasury tasks and accounting documentation</li>
+                            <li>Supported business operations in pergola, electric movable roof systems, and general trading</li>
+                            <li>Communicated with international companies, including Korean chemical manufacturers and Chinese finance companies</li>
+                            <li>Acted as the company's authorized person in banks, gaining experience in banking procedures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title center">Skills & Expertise</h2>
+            
+            <div class="row">
+                <!-- Technical Skills -->
+                <div class="col-lg-6">
+                    <div class="skill-category fade-in">
+                        <h4><i class="bi bi-code-slash me-2"></i>Technical Skills</h4>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">IT Support & Troubleshooting</div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">Computer Logic & IT Knowledge</div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">Problem Solving</div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Skills -->
+                <div class="col-lg-6">
+                    <div class="skill-category fade-in">
+                        <h4><i class="bi bi-briefcase me-2"></i>Business Skills</h4>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">Accounting & Financial Recording</div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">Treasury & Banking Knowledge</div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">Business Communication</div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">Multi-field Business Operations</div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Personal Skills -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="skill-category fade-in">
+                        <h4><i class="bi bi-person-check me-2"></i>Personal Skills</h4>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="skill-item text-center">
+                                    <div class="skill-name">Fast Learning</div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="skill-item text-center">
+                                    <div class="skill-name">Adaptability</div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="skill-item text-center">
+                                    <div class="skill-name">Organization</div>
+                                    <div class="skill-bar">
+                                        <div class="skill-level" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education-section">
+        <div class="container">
+            <h2 class="section-title center">Education</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="education-card fade-in">
+                        <div class="education-icon">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <h3 class="education-degree">Bachelor of Computer Science</h3>
+                        <h4 class="education-school">Soran University</h4>
+                        <p class="education-year">2021 – 2025</p>
+                        <p class="mt-3">
+                            Comprehensive education in computer science fundamentals, software development, and IT systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section id="languages" class="section languages-section">
+        <div class="container">
+            <h2 class="section-title center">Languages</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="language-item fade-in">
+                        <h3 class="language-name">Kurdish</h3>
+                        <p class="language-level">Native</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="language-item fade-in">
+                        <h3 class="language-name">Arabic</h3>
+                        <p class="language-level">Fluent</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="language-item fade-in">
+                        <h3 class="language-name">English</h3>
+                        <p class="language-level">Upper Intermediate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title center">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="contact-info fade-in">
+                        <h4><i class="bi bi-geo-alt contact-icon"></i>Location</h4>
+                        <p>Erbil, Kurdistan Region – Iraq</p>
+                    </div>
+                    
+                    <div class="contact-info fade-in">
+                        <h4><i class="bi bi-envelope contact-icon"></i>Email</h4>
+                        <p>Abdulrahman.gmcd@gmail.com</p>
+                    </div>
+                    
+                    <div class="contact-info fade-in">
+                        <h4><i class="bi bi-phone contact-icon"></i>Phone</h4>
+                        <p>07509208992</p>
+                    </div>
+                    
+                    <div class="contact-info fade-in">
+                        <h4><i class="bi bi-globe contact-icon"></i>Website</h4>
+                        <p>https://abdulrahmann001.github.io</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8">
+                    <div class="contact-form fade-in">
+                        <form action="https://formsubmit.co/1f9d9de14c11bcf08bef66855125efa5" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                            <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <button type="submit" class="btn submit-btn">Send Message</button>
+                            <a href="https://wa.me/9647509208992" class="btn submit-btn mt-3" target="_blank">
+                                <i class="bi bi-whatsapp me-2"></i> Contact via WhatsApp
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.snapchat.com/add/abdulrahmann-11" class="social-link" target="_blank">
+                    <i class="bi bi-snapchat"></i>
+                </a>
+                <a href="https://www.instagram.com/abdulrahmann_001" class="social-link" target="_blank">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/muhamad.eyhgfsuuhg" class="social-link" target="_blank">
+                    <i class="bi bi-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2025 Abdulrahman Kamal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar background on scroll
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    document.querySelector('.navbar').style.padding = '0.5rem 0';
+                    document.querySelector('.navbar').style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                } else {
+                    document.querySelector('.navbar').style.padding = '1rem 0';
+                    document.querySelector('.navbar').style.boxShadow = 'none';
+                }
+            });
+
+            // Fade in elements on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Check on load
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Animate skill bars when they come into view
+            const skillBars = document.querySelectorAll('.skill-level');
+            
+            const animateSkillBars = function() {
+                skillBars.forEach(bar => {
+                    const barTop = bar.getBoundingClientRect().top;
+                    
+                    if (barTop < window.innerHeight - 100) {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 300);
+                    }
+                });
+            };
+            
+            // Check on load
+            animateSkillBars();
+            
+            // Check on scroll
+            window.addEventListener('scroll', animateSkillBars);
+        });
+    </script>
+</body>
+</html>
